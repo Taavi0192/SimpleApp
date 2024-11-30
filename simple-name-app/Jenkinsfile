@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                // Clone your GitHub repository
+                git 'https://github.com/Taavi0192/SimpleApp.git'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                // Build the Docker image using the Dockerfile in your project
+                sh 'docker build -t simple-name-app .'
+            }
+        }
+
+        stage('Run Docker Container') {
+            steps {
+                // Run the Docker container and map port 3000 to the host
+                sh 'docker run -d -p 3000:3000 simple-name-app'
+            }
+        }
+    }
+}
