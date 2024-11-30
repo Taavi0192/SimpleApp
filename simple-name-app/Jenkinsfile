@@ -10,7 +10,9 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t simple-name-app .'
+                dir('simple-name-app') {  // Change to the subdirectory containing the Dockerfile
+                    sh 'docker build -t simple-name-app .'
+                }
             }
         }
 
