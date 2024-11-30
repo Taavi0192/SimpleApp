@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Counter App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    button {
+      font-size: 20px;
+      margin: 10px;
+      padding: 10px 20px;
+    }
+    #counter {
+      font-size: 40px;
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Simple Counter App</h1>
+  <div id="counter">0</div>
+  <button onclick="increment()">Add</button>
+  <button onclick="decrement()">Subtract</button>
+
+  <script>
+    let count = 0;
+
+    function increment() {
+      count++;
+      updateCounter();
+    }
+
+    function decrement() {
+      count--;
+      updateCounter();
+    }
+
+    function updateCounter() {
+      document.getElementById('counter').textContent = count;
+    }
+  </script>
+</body>
+</html>
